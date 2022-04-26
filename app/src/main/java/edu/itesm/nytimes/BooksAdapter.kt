@@ -40,4 +40,5 @@ class BooksAdapter(private val data: List<Book>?) : RecyclerView.Adapter<BooksAd
         holder.bind(data!![position])
     }
 
+
 }

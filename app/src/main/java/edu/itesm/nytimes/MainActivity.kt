@@ -33,6 +33,38 @@ class MainActivity : AppCompatActivity() {
             .build()
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        Toast.makeText(applicationContext, "Start", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(applicationContext, "Resume", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Toast.makeText(applicationContext, "Stop", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Toast.makeText(applicationContext, "Pause", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(applicationContext, "Destroy", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Toast.makeText(applicationContext, "Restart", Toast.LENGTH_LONG).show()
+    }
+
+
     fun getAllData(){
 
         val callToService = getRetrofit().create(APIService::class.java)
@@ -50,7 +82,9 @@ class MainActivity : AppCompatActivity() {
                         /*
                         * Completa el código y crea el adapter.
                         * */
-
+                        myAdapter = BooksAdapter(results.results?.books)
+                        layoutManager = manager
+                        adapter = myAdapter
 
                     }
 
